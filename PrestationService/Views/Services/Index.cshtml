@@ -1,0 +1,89 @@
+﻿@model IEnumerable<PrestationService.Models.Service>
+
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_admin_Layout.cshtml";
+  
+}
+
+
+        <div class="product-status mg-b-30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="product-status-wrap">
+                            <h4>Services List</h4>
+                            <div class="add-product">
+                                @Html.ActionLink("Create New", "Create")
+                            </div>
+                            <table>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.idService)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.libelle)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.description)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.prix)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.nbHeure)
+                                    </th>
+                                    <th>
+                                        Professionnelle
+                                    </th>
+                                    <th>
+                                        SousCategorie
+                                    </th>
+                                    <th>Setting</th>
+                                </tr>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.idService)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.libelle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.description)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.prix)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.nbHeure)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Professionnel.nomComplet)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SousCategorie.libSouCat)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.idService }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.idService }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idService })
+                                    </td>
+                                </tr>
+                                }
+
+                            </table>
+                 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+   
+
+
+
+

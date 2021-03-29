@@ -1,0 +1,35 @@
+﻿@model PrestationService.Models.UserConnect
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserConnect</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ChatRoom.libelleRoom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ChatRoom.libelleRoom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personne.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personne.nom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idConnect }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

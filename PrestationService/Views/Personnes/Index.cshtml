@@ -1,0 +1,108 @@
+﻿@model IEnumerable<PrestationService.Models.Personne>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_admin_Layout.cshtml";
+
+}
+
+
+<div class="product-status mg-b-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap">
+                    <h4>Liste Personne</h4>
+                    <div class="add-product">
+                        @Html.ActionLink("Create New", "Create")
+                    </div>
+                    <table>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Role.libRole)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nom)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.prenom)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.naissance)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.adresse)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.mail)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.password)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.tel)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.identification)
+                            </th>
+                            <th>Setting</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Role.libRole)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.prenom)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.naissance)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.adresse)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.mail)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.password)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.tel)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.identification)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.idPerson }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.idPerson }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.idPerson })
+                            </td>
+                        </tr>
+                        }
+
+                    </table>
+                    <div class="custom-pagination">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

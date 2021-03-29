@@ -1,0 +1,205 @@
+﻿@using PrestationService.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Connexion";
+    Layout = null;
+}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login | XARMAT</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="/nalika/img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/owl.carousel.css">
+    <link rel="stylesheet" href="/nalika/css/owl.theme.css">
+    <link rel="stylesheet" href="/nalika/css/owl.transitions.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/normalize.css">
+    <!-- main CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/main.css">
+    <!-- morrisjs CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="/nalika/css/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="/nalika/css/calendar/fullcalendar.print.min.css">
+    <!-- forms CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/form/all-type-forms.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="/nalika/css/responsive.css">
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="/nalika/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <div class="color-line"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="back-link back-backend">
+                    <a href="index.cshtml" class="btn btn-primary">Retour à l'acceuil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid"  style="background-image:url('/nalika/img/blog-details/blur-background-og.jpg') ;background-size: cover;background-repeat: no-repeat;">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+            <div class="col-md-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="text-center m-b-md custom-login">
+                    <h3>PLEASE LOGIN TO APP</h3>
+                </div>
+                <div class="hpanel">
+                    <div class="panel-body">
+                        <section id="loginForm">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <h4>Sign In.</h4>
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.userName, new { @class = "col-md-3 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.userName, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <div class="checkbox">
+                                            @Html.CheckBoxFor(m => m.RememberMe)
+                                            @Html.LabelFor(m => m.RememberMe)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-0 col-md-10">
+                                        <input type="submit" value="Connexion" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                                <p>
+                                    @Html.ActionLink("S'inscrire comme nouvel utilisateur", "Register")
+                                </p>
+                                @* Activer ceci une fois que la confirmation de votre compte est activée pour la fonctionnalité de réinitialisation du mot de passe
+                    <p>
+                        @Html.ActionLink("Vous avez oublié votre mot de passe ?", "ForgotPassword")
+                    </p>*@
+                            }
+                        </section>
+                    </div>
+                    <hr />
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center" style="color:darkblue">
+                            <section id="socialLoginForm">
+                                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <!-- jquery
+        ============================================ -->
+    <script src="/nalika/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="/nalika/js/bootstrap.min.js"></script>
+    <!-- wow JS
+        ============================================ -->
+    <script src="/nalika/js/wow.min.js"></script>
+    <!-- price-slider JS
+        ============================================ -->
+    <script src="/nalika/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="/nalika/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+        ============================================ -->
+    <script src="/nalika/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="/nalika/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="/nalika/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="/nalika/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/nalika/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+        ============================================ -->
+    <script src="/nalika/js/metisMenu/metisMenu.min.js"></script>
+    <script src="/nalika/js/metisMenu/metisMenu-active.js"></script>
+    <!-- tab JS
+        ============================================ -->
+    <script src="/nalika/js/tab.js"></script>
+    <!-- icheck JS
+        ============================================ -->
+    <script src="/nalika/js/icheck/icheck.min.js"></script>
+    <script src="/nalika/js/icheck/icheck-active.js"></script>
+    <!-- plugins JS
+        ============================================ -->
+    <script src="/nalika/js/plugins.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="/nalika/js/main.js"></script>
+</body>
+
+
+
+
+}

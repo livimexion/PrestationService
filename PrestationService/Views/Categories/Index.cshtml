@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PrestationService.Models.Categorie>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+
+<div class="product-status mg-b-30">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap" style="background-color:lightsteelblue">
+                    <h4>Liste Categories</h4>
+                    <div class="breadcome-heading">
+                        <form role="search" class="">
+                            <input type="text" placeholder="Search..." class="form-control">
+                            <a href=""><i class="fa fa-search"></i></a>
+                        </form>
+                    </div>
+                    <div class="add-product">
+                        @Html.ActionLink("Create New", "Create")
+                    </div>
+                    <div class="table-responsive-lg ">
+                        <table>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.libCat)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.description)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.photo)
+                                </th>
+                                <th>Setting</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.libCat)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.description)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.photo)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.idCat }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.idCat }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idCat })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                    <div class="custom-pagination">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,57 @@
+﻿@model PrestationService.Models.Service
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_admin_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="product-tab-list tab-pane fade" id="INFORMATION">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="review-content-section">
+                <div class="card-block">
+                    <div class="text-muted f-w-400">
+                        <p>No reviews yet.</p>
+                    </div>
+                    <div class="input-group mg-b-15 mg-t-15">
+                        <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
+                        @Html.DisplayFor(model => model.libelle)
+                    </div>
+                    <div class="input-group mg-b-15">
+                        <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
+                        @Html.DisplayFor(model => model.description)
+                    </div>
+                    <div class="input-group mg-b-15">
+                        <span class="input-group-addon"><i class="icon nalika-mail" aria-hidden="true"></i></span>
+                        @Html.DisplayFor(model => model.prix)
+                    </div>
+                    <div class="input-group mg-b-15 mg-t-15">
+                        <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
+                        @Html.DisplayFor(model => model.nbHeure)
+                    </div>
+                    <div class="input-group mg-b-15">
+                        <span class="input-group-addon"><i class="icon nalika-user" aria-hidden="true"></i></span>
+                        @Html.DisplayFor(model => model.IdProfessionnel)
+                    </div>
+                    <div class="input-group mg-b-15">
+                        <span class="input-group-addon"><i class="icon nalika-mail" aria-hidden="true"></i></span>
+                        @Html.DisplayFor(model => model.idSouCat)
+                    </div>
+
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.idService }) |
+                        @Html.ActionLink("Back to List", "Index")
+                    </p>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

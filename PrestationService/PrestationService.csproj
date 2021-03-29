@@ -1,0 +1,791 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{288F10AB-80CE-4BEC-AED6-8944A0D5F10C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PrestationService</RootNamespace>
+    <AssemblyName>PrestationService</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministrationController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\ChatRoomsController.cs" />
+    <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\PersonnesController.cs" />
+    <Compile Include="Controllers\PrestationsController.cs" />
+    <Compile Include="Controllers\ProfessionnelsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\SousCategoriesController.cs" />
+    <Compile Include="Controllers\UserConnectsController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\bdServiceContext.cs" />
+    <Compile Include="Models\Carte.cs" />
+    <Compile Include="Models\Categorie.cs" />
+    <Compile Include="Models\ChatRoom.cs" />
+    <Compile Include="Models\Cheque.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Facture.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\Paiement.cs" />
+    <Compile Include="Models\Personne.cs" />
+    <Compile Include="Models\Prestation.cs" />
+    <Compile Include="Models\Professionnel.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\SousCategorie.cs" />
+    <Compile Include="Models\Transfert.cs" />
+    <Compile Include="Models\UserConnect.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RelationService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="nalika\404.html" />
+    <Content Include="nalika\500.html" />
+    <Content Include="nalika\accordion.html" />
+    <Content Include="nalika\advance-form-element.html" />
+    <Content Include="nalika\alerts.html" />
+    <Content Include="nalika\analytics.html" />
+    <Content Include="nalika\area-charts.html" />
+    <Content Include="nalika\bar-charts.html" />
+    <Content Include="nalika\basic-form-element.html" />
+    <Content Include="nalika\blog-details.html" />
+    <Content Include="nalika\blog.html" />
+    <Content Include="nalika\buttons.html" />
+    <Content Include="nalika\c3.html" />
+    <Content Include="nalika\code-editor.html" />
+    <Content Include="nalika\css\accordions.css" />
+    <Content Include="nalika\css\alerts.css" />
+    <Content Include="nalika\css\animate.css" />
+    <Content Include="nalika\css\bootstrap.min.css" />
+    <Content Include="nalika\css\buttons.css" />
+    <Content Include="nalika\css\c3\c3.min.css" />
+    <Content Include="nalika\css\calendar\fullcalendar.min.css" />
+    <Content Include="nalika\css\calendar\fullcalendar.print.min.css" />
+    <Content Include="nalika\css\chosen\bootstrap-chosen.css" />
+    <Content Include="nalika\css\chosen\chosen-sprite.png" />
+    <Content Include="nalika\css\code-editor\ambiance.css" />
+    <Content Include="nalika\css\code-editor\codemirror.css" />
+    <Content Include="nalika\css\colorpicker\colorpicker.css" />
+    <Content Include="nalika\css\cropper\cropper.min.css" />
+    <Content Include="nalika\css\data-table\bootstrap-editable.css" />
+    <Content Include="nalika\css\data-table\bootstrap-table.css" />
+    <Content Include="nalika\css\datapicker\colorpicker.css" />
+    <Content Include="nalika\css\datapicker\datepicker3.css" />
+    <Content Include="nalika\css\dropzone\dropzone.css" />
+    <Content Include="nalika\css\duallistbox\bootstrap-duallistbox.min.css" />
+    <Content Include="nalika\css\editor\bootstrap-editable.css" />
+    <Content Include="nalika\css\editor\datetimepicker.css" />
+    <Content Include="nalika\css\editor\select2.css" />
+    <Content Include="nalika\css\editor\x-editor-style.css" />
+    <Content Include="nalika\css\font-awesome.min.css" />
+    <Content Include="nalika\css\form\all-type-forms.css" />
+    <Content Include="nalika\css\form\themesaller-forms.css" />
+    <Content Include="nalika\css\ionRangeSlider\ion.rangeSlider.css" />
+    <Content Include="nalika\css\ionRangeSlider\ion.rangeSlider.skinFlat.css" />
+    <Content Include="nalika\css\ionRangeSlider\sprite-skin-flat.png" />
+    <Content Include="nalika\css\main.css" />
+    <Content Include="nalika\css\meanmenu.min.css" />
+    <Content Include="nalika\css\metisMenu\metisMenu-vertical.css" />
+    <Content Include="nalika\css\metisMenu\metisMenu.min.css" />
+    <Content Include="nalika\css\modals.css" />
+    <Content Include="nalika\css\morrisjs\morris.css" />
+    <Content Include="nalika\css\nalika-icon.css" />
+    <Content Include="nalika\css\normalize.css" />
+    <Content Include="nalika\css\notifications\Lobibox.min.css" />
+    <Content Include="nalika\css\notifications\notifications.css" />
+    <Content Include="nalika\css\owl.carousel.css" />
+    <Content Include="nalika\css\owl.theme.css" />
+    <Content Include="nalika\css\owl.transitions.css" />
+    <Content Include="nalika\css\preloader\preloader-style.css" />
+    <Content Include="nalika\css\responsive.css" />
+    <Content Include="nalika\css\scrollbar\jquery.mCustomScrollbar.min.css" />
+    <Content Include="nalika\css\select2\select2.min.css" />
+    <Content Include="nalika\css\summernote\summernote.css" />
+    <Content Include="nalika\css\tabs.css" />
+    <Content Include="nalika\css\touchspin\jquery.bootstrap-touchspin.min.css" />
+    <Content Include="nalika\css\tree-viewer\32px.png" />
+    <Content Include="nalika\css\tree-viewer\throbber.gif" />
+    <Content Include="nalika\css\tree-viewer\tree-viewer.css" />
+    <Content Include="nalika\data-maps.html" />
+    <Content Include="nalika\data-table.html" />
+    <Content Include="nalika\dual-list-box.html" />
+    <Content Include="nalika\file-manager.html" />
+    <Content Include="nalika\fonts\fontawesome-webfont.svg" />
+    <Content Include="nalika\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="nalika\fonts\nalika.svg" />
+    <Content Include="nalika\google-map.html" />
+    <Content Include="nalika\images-cropper.html" />
+    <Content Include="nalika\img\blog-details\1.jpg" />
+    <Content Include="nalika\img\blog-details\blur-background-og.jpg" />
+    <Content Include="nalika\img\blog-details\bricolage.jpg" />
+    <Content Include="nalika\img\blog-details\images.png" />
+    <Content Include="nalika\img\blog-details\istockphoto-1199291148-612x612.jpg" />
+    <Content Include="nalika\img\contact\1.jpg" />
+    <Content Include="nalika\img\contact\2.jpg" />
+    <Content Include="nalika\img\contact\3.jpg" />
+    <Content Include="nalika\img\contact\4.jpg" />
+    <Content Include="nalika\img\cropper\1.jpg" />
+    <Content Include="nalika\img\favicon.ico" />
+    <Content Include="nalika\img\green1.png" />
+    <Content Include="nalika\img\logo\logo.png" />
+    <Content Include="nalika\img\logo\logosn.png" />
+    <Content Include="nalika\img\new-product\16-home_default.jpg" />
+    <Content Include="nalika\img\new-product\21-home_default.jpg" />
+    <Content Include="nalika\img\new-product\5-small.jpg" />
+    <Content Include="nalika\img\new-product\5.png" />
+    <Content Include="nalika\img\new-product\6-small.jpg" />
+    <Content Include="nalika\img\new-product\6.png" />
+    <Content Include="nalika\img\new-product\7-small.jpg" />
+    <Content Include="nalika\img\new-product\7.jpg" />
+    <Content Include="nalika\img\new-product\90-home_default.jpg" />
+    <Content Include="nalika\img\notification\1.jpg" />
+    <Content Include="nalika\img\notification\2.jpg" />
+    <Content Include="nalika\img\notification\3.jpg" />
+    <Content Include="nalika\img\notification\4.jpg" />
+    <Content Include="nalika\img\notification\5.jpg" />
+    <Content Include="nalika\img\notification\6.jpg" />
+    <Content Include="nalika\img\product\1.jpg" />
+    <Content Include="nalika\img\product\2.jpg" />
+    <Content Include="nalika\img\product\3.jpg" />
+    <Content Include="nalika\img\product\bg-1.jpg" />
+    <Content Include="nalika\img\product\bg-2.jpg" />
+    <Content Include="nalika\img\product\bg-3.jpg" />
+    <Content Include="nalika\index-1.html" />
+    <Content Include="nalika\index-2.html" />
+    <Content Include="nalika\index.html" />
+    <Content Include="nalika\js\bootstrap.min.js" />
+    <Content Include="nalika\js\c3-charts\c3-active.js" />
+    <Content Include="nalika\js\c3-charts\c3.min.js" />
+    <Content Include="nalika\js\c3-charts\d3.min.js" />
+    <Content Include="nalika\js\calendar\fullcalendar-active.js" />
+    <Content Include="nalika\js\calendar\fullcalendar.min.js" />
+    <Content Include="nalika\js\calendar\moment.min.js" />
+    <Content Include="nalika\js\card.js" />
+    <Content Include="nalika\js\charts\area-chart.js" />
+    <Content Include="nalika\js\charts\bar-chart.js" />
+    <Content Include="nalika\js\charts\Chart.js" />
+    <Content Include="nalika\js\charts\line-chart.js" />
+    <Content Include="nalika\js\charts\rounded-chart.js" />
+    <Content Include="nalika\js\chart\jquery.peity.min.js" />
+    <Content Include="nalika\js\chart\peity-active.js" />
+    <Content Include="nalika\js\chosen\chosen-active.js" />
+    <Content Include="nalika\js\chosen\chosen.jquery.js" />
+    <Content Include="nalika\js\code-editor\code-editor-active.js" />
+    <Content Include="nalika\js\code-editor\code-editor.js" />
+    <Content Include="nalika\js\code-editor\codemirror.js" />
+    <Content Include="nalika\js\colorpicker\color-picker-active.js" />
+    <Content Include="nalika\js\colorpicker\jquery.spectrum.min.js" />
+    <Content Include="nalika\js\counterup\counterup-active.js" />
+    <Content Include="nalika\js\counterup\jquery.counterup.min.js" />
+    <Content Include="nalika\js\counterup\waypoints.min.js" />
+    <Content Include="nalika\js\cropper\cropper-actice.js" />
+    <Content Include="nalika\js\cropper\cropper.min.js" />
+    <Content Include="nalika\js\data-map\d3.min.js" />
+    <Content Include="nalika\js\data-map\data-maps-active.js" />
+    <Content Include="nalika\js\data-map\datamaps.all.min.js" />
+    <Content Include="nalika\js\data-map\topojson.js" />
+    <Content Include="nalika\js\data-table\bootstrap-editable.js" />
+    <Content Include="nalika\js\data-table\bootstrap-table-editable.js" />
+    <Content Include="nalika\js\data-table\bootstrap-table-export.js" />
+    <Content Include="nalika\js\data-table\bootstrap-table-resizable.js" />
+    <Content Include="nalika\js\data-table\bootstrap-table.js" />
+    <Content Include="nalika\js\data-table\colResizable-1.5.source.js" />
+    <Content Include="nalika\js\data-table\data-table-active.js" />
+    <Content Include="nalika\js\data-table\tableExport.js" />
+    <Content Include="nalika\js\datapicker\bootstrap-datepicker.js" />
+    <Content Include="nalika\js\datapicker\datepicker-active.js" />
+    <Content Include="nalika\js\dropzone\dropzone.js" />
+    <Content Include="nalika\js\duallistbox\duallistbox.active.js" />
+    <Content Include="nalika\js\duallistbox\jquery.bootstrap-duallistbox.js" />
+    <Content Include="nalika\js\e-payment.js" />
+    <Content Include="nalika\js\editable\bootstrap-datetimepicker.js" />
+    <Content Include="nalika\js\editable\bootstrap-editable.js" />
+    <Content Include="nalika\js\editable\jquery.mockjax.js" />
+    <Content Include="nalika\js\editable\mock-active.js" />
+    <Content Include="nalika\js\editable\moment.min.js" />
+    <Content Include="nalika\js\editable\select2.js" />
+    <Content Include="nalika\js\editable\xediable-active.js" />
+    <Content Include="nalika\js\flot\curvedLines.js" />
+    <Content Include="nalika\js\flot\flot-active.js" />
+    <Content Include="nalika\js\flot\jquery.flot.js" />
+    <Content Include="nalika\js\flot\jquery.flot.orderBars.js" />
+    <Content Include="nalika\js\flot\jquery.flot.pie.js" />
+    <Content Include="nalika\js\flot\jquery.flot.resize.js" />
+    <Content Include="nalika\js\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="nalika\js\google.maps\google.maps-active.js" />
+    <Content Include="nalika\js\icheck\icheck-active.js" />
+    <Content Include="nalika\js\icheck\icheck.min.js" />
+    <Content Include="nalika\js\input-mask\jasny-bootstrap.min.js" />
+    <Content Include="nalika\js\ionRangeSlider\ion.rangeSlider.active.js" />
+    <Content Include="nalika\js\ionRangeSlider\ion.rangeSlider.min.js" />
+    <Content Include="nalika\js\jquery-price-slider.js" />
+    <Content Include="nalika\js\jquery.meanmenu.js" />
+    <Content Include="nalika\js\jquery.payform.min.js" />
+    <Content Include="nalika\js\jquery.scrollUp.min.js" />
+    <Content Include="nalika\js\jquery.sticky.js" />
+    <Content Include="nalika\js\knob\jquery.knob.js" />
+    <Content Include="nalika\js\knob\knob-active.js" />
+    <Content Include="nalika\js\main.js" />
+    <Content Include="nalika\js\metisMenu\metisMenu-active.js" />
+    <Content Include="nalika\js\metisMenu\metisMenu.min.js" />
+    <Content Include="nalika\js\morrisjs\morris-active-pro.js" />
+    <Content Include="nalika\js\morrisjs\morris-active.js" />
+    <Content Include="nalika\js\morrisjs\morris.js" />
+    <Content Include="nalika\js\morrisjs\raphael-min.js" />
+    <Content Include="nalika\js\notifications\Lobibox.js" />
+    <Content Include="nalika\js\notifications\notification-active.js" />
+    <Content Include="nalika\js\owl.carousel.min.js" />
+    <Content Include="nalika\js\password-meter\password-meter-active.js" />
+    <Content Include="nalika\js\password-meter\pwstrength-bootstrap.min.js" />
+    <Content Include="nalika\js\password-meter\zxcvbn.js" />
+    <Content Include="nalika\js\pdf\jquery.media.js" />
+    <Content Include="nalika\js\pdf\pdf-active.js" />
+    <Content Include="nalika\js\peity\jquery.peity.min.js" />
+    <Content Include="nalika\js\peity\peity-active.js" />
+    <Content Include="nalika\js\plugins.js" />
+    <Content Include="nalika\js\rangle-slider\jquery-ui-1.10.4.custom.min.js" />
+    <Content Include="nalika\js\rangle-slider\jquery-ui-touch-punch.min.js" />
+    <Content Include="nalika\js\rangle-slider\rangle-active.js" />
+    <Content Include="nalika\js\scrollbar\jquery.mCustomScrollbar.concat.min.js" />
+    <Content Include="nalika\js\scrollbar\mCustomScrollbar-active.js" />
+    <Content Include="nalika\js\select2\select2-active.js" />
+    <Content Include="nalika\js\select2\select2.full.min.js" />
+    <Content Include="nalika\js\sparkline\jquery.charts-sparkline.js" />
+    <Content Include="nalika\js\sparkline\jquery.sparkline.min.js" />
+    <Content Include="nalika\js\sparkline\sparkline-active.js" />
+    <Content Include="nalika\js\summernote\summernote-active.js" />
+    <Content Include="nalika\js\summernote\summernote.min.js" />
+    <Content Include="nalika\js\tab.js" />
+    <Content Include="nalika\js\touchspin\jquery.bootstrap-touchspin.min.js" />
+    <Content Include="nalika\js\touchspin\touchspin-active.js" />
+    <Content Include="nalika\js\tree-line\jstree.active.js" />
+    <Content Include="nalika\js\tree-line\jstree.min.js" />
+    <Content Include="nalika\js\vendor\jquery-1.12.4.min.js" />
+    <Content Include="nalika\js\vendor\modernizr-2.8.3.min.js" />
+    <Content Include="nalika\js\wizard\jquery.steps.js" />
+    <Content Include="nalika\js\wizard\steps-active.js" />
+    <Content Include="nalika\js\wow.min.js" />
+    <Content Include="nalika\line-charts.html" />
+    <Content Include="nalika\lock.html" />
+    <Content Include="nalika\login.html" />
+    <Content Include="nalika\mailbox-compose.html" />
+    <Content Include="nalika\mailbox-view.html" />
+    <Content Include="nalika\mailbox.html" />
+    <Content Include="nalika\modals.html" />
+    <Content Include="nalika\multi-upload.html" />
+    <Content Include="nalika\notifications.html" />
+    <Content Include="nalika\password-meter.html" />
+    <Content Include="nalika\password-recovery.html" />
+    <Content Include="nalika\pdf-viewer.html" />
+    <Content Include="nalika\peity.html" />
+    <Content Include="nalika\preloader.html" />
+    <Content Include="nalika\product-cart.html" />
+    <Content Include="nalika\product-detail.html" />
+    <Content Include="nalika\product-edit.html" />
+    <Content Include="nalika\product-list.html" />
+    <Content Include="nalika\product-payment.html" />
+    <Content Include="nalika\register.html" />
+    <Content Include="nalika\rounded-chart.html" />
+    <Content Include="nalika\sparkline.html" />
+    <Content Include="nalika\static-table.html" />
+    <Content Include="nalika\style.css" />
+    <Content Include="nalika\tabs.html" />
+    <Content Include="nalika\tinymc.html" />
+    <Content Include="nalika\tree-view.html" />
+    <Content Include="nalika\widgets.html" />
+    <Content Include="nalika\x-editable.html" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="nalika\css\summernote\fonts\summernote.eot" />
+    <Content Include="nalika\css\summernote\fonts\summernote.ttf" />
+    <Content Include="nalika\css\summernote\fonts\summernote.woff" />
+    <Content Include="nalika\fonts\fontawesome-webfont.eot" />
+    <Content Include="nalika\fonts\fontawesome-webfont.ttf" />
+    <Content Include="nalika\fonts\fontawesome-webfont.woff" />
+    <Content Include="nalika\fonts\fontawesome-webfont.woff2" />
+    <Content Include="nalika\fonts\FontAwesome.otf" />
+    <Content Include="nalika\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="nalika\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="nalika\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="nalika\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="nalika\fonts\nalika.ttf" />
+    <Content Include="nalika\fonts\nalika.woff" />
+    <Content Include="nalika\img\blog-details\Thumbs.db" />
+    <Content Include="nalika\img\contact\Thumbs.db" />
+    <Content Include="nalika\img\cropper\Thumbs.db" />
+    <Content Include="nalika\img\logo\Thumbs.db" />
+    <Content Include="nalika\img\new-product\Thumbs.db" />
+    <Content Include="nalika\img\notification\Thumbs.db" />
+    <Content Include="nalika\img\product\Thumbs.db" />
+    <Content Include="nalika\img\Thumbs.db" />
+    <Content Include="nalika\pdf\mamunur.pdf" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Scripts\jquery-3.5.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.5.1.js" />
+    <Content Include="Scripts\jquery-3.5.1.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.5.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.5.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\SousCategories\Delete.cshtml" />
+    <Content Include="Views\SousCategories\Details.cshtml" />
+    <Content Include="Views\SousCategories\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
+    <Content Include="Views\Paiements\Create.cshtml" />
+    <Content Include="Views\Paiements\Delete.cshtml" />
+    <Content Include="Views\Paiements\Details.cshtml" />
+    <Content Include="Views\Paiements\Edit.cshtml" />
+    <Content Include="Views\Paiements\Index.cshtml" />
+    <Content Include="Views\Cartes\Create.cshtml" />
+    <Content Include="Views\Cartes\Delete.cshtml" />
+    <Content Include="Views\Cartes\Details.cshtml" />
+    <Content Include="Views\Cartes\Edit.cshtml" />
+    <Content Include="Views\Cartes\Index.cshtml" />
+    <Content Include="Views\Cheques\Create.cshtml" />
+    <Content Include="Views\Cheques\Delete.cshtml" />
+    <Content Include="Views\Cheques\Details.cshtml" />
+    <Content Include="Views\Cheques\Edit.cshtml" />
+    <Content Include="Views\Cheques\Index.cshtml" />
+    <Content Include="Views\Transferts\Create.cshtml" />
+    <Content Include="Views\Transferts\Delete.cshtml" />
+    <Content Include="Views\Transferts\Details.cshtml" />
+    <Content Include="Views\Transferts\Edit.cshtml" />
+    <Content Include="Views\Transferts\Index.cshtml" />
+    <Content Include="Views\Messages\Create.cshtml" />
+    <Content Include="Views\Messages\Delete.cshtml" />
+    <Content Include="Views\Messages\Details.cshtml" />
+    <Content Include="Views\Messages\Edit.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\ChatRooms\Create.cshtml" />
+    <Content Include="Views\ChatRooms\Delete.cshtml" />
+    <Content Include="Views\ChatRooms\Details.cshtml" />
+    <Content Include="Views\ChatRooms\Edit.cshtml" />
+    <Content Include="Views\ChatRooms\Index.cshtml" />
+    <Content Include="Views\UserConnects\Create.cshtml" />
+    <Content Include="Views\UserConnects\Delete.cshtml" />
+    <Content Include="Views\UserConnects\Details.cshtml" />
+    <Content Include="Views\UserConnects\Edit.cshtml" />
+    <Content Include="Views\UserConnects\Index.cshtml" />
+    <Content Include="Views\Personnes\Create.cshtml" />
+    <Content Include="Views\Personnes\Delete.cshtml" />
+    <Content Include="Views\Personnes\Details.cshtml" />
+    <Content Include="Views\Personnes\Edit.cshtml" />
+    <Content Include="Views\Personnes\Index.cshtml" />
+    <Content Include="Views\Administration\Accueil.cshtml" />
+    <Content Include="Views\Shared\_admin_layout.cshtml" />
+    <Content Include="Views\Administration\Service.cshtml" />
+    <Content Include="Views\Clients\Create.cshtml" />
+    <Content Include="Views\Clients\Delete.cshtml" />
+    <Content Include="Views\Clients\Details.cshtml" />
+    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Index.cshtml" />
+    <Content Include="Views\Professionnels\Create.cshtml" />
+    <Content Include="Views\Professionnels\Delete.cshtml" />
+    <Content Include="Views\Professionnels\Details.cshtml" />
+    <Content Include="Views\Professionnels\Edit.cshtml" />
+    <Content Include="Views\Professionnels\Index.cshtml" />
+    <Content Include="Views\SousCategories\Create.cshtml" />
+    <Content Include="Views\SousCategories\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Prestations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62985</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:62985/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur. Utilisez l'option de restauration des packages NuGet pour les télécharger. Pour plus d'informations, consultez http://go.microsoft.com/fwlink/?LinkID=322105. Le fichier manquant est : {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

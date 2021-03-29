@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PrestationService.Models.Message>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ChatRoom.libelleRoom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Personne.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonneTo.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.texte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.serviceType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idPersonTo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ChatRoom.libelleRoom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Personne.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonneTo.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.texte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.serviceType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idPersonTo)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idMsg }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idMsg }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idMsg })
+        </td>
+    </tr>
+}
+
+</table>

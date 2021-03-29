@@ -1,0 +1,73 @@
+﻿@model IEnumerable<PrestationService.Models.SousCategorie>
+
+@{
+    ViewBag.Title = "SousCategories";
+    Layout = "~/Views/Shared/_admin_layout.cshtml";
+}
+
+<div class="product-status mg-b-30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="product-status-wrap" style="background-color:lightsteelblue">
+                    <h4>Liste sous Categorie</h4>
+                    <div class="add-product">
+                        @Html.ActionLink("Create New", "Create")
+                    </div>
+                    <div class="table-responsive-lg ">
+                        <table>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.idSouCat)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.libSouCat)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.description)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.photo)
+                                </th>
+                                <th>
+                                        Categorie
+                                </th>
+                                <th>Setting</th>
+                            </tr>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idSouCat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.libSouCat)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.photo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Categorie.libCat)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.idSouCat }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.idSouCat }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.idSouCat })
+                                </td>
+                            </tr>
+                            }
+
+                        </table>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
