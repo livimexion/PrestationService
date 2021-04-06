@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_admin_Layout.cshtml";
 }
 
 <div class="single-product-tab-area mg-b-30">
@@ -57,11 +57,11 @@
                                                     @Html.DisplayFor(model => model.nbHeure)
                                                 </dd>
                                                 <dt>
-                                                    @Html.DisplayNameFor(model => model.Professionnel.IdProfessionnel)
+                                                    @Html.DisplayNameFor(model => model.Professionnel.nomComplet)
                                                 </dt>
 
                                                 <dd>
-                                                    @Html.DisplayFor(model => model.Professionnel.IdProfessionnel)
+                                                    @Html.DisplayFor(model => model.Professionnel.nomComplet)
                                                 </dd>
 
                                                 <dt>

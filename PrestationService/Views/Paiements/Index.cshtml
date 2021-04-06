@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_layout.cshtml";
 }
 
 <h2>Index</h2>
@@ -15,6 +15,21 @@
         <th>
             @Html.DisplayNameFor(model => model.typPay)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.typeCarte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numeroCarte)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numeroChk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.operateur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tel)
+        </th>
         <th></th>
     </tr>
 
@@ -22,6 +37,21 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.typPay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.typeCarte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeroCarte)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeroChk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.operateur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tel)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.idPay }) |

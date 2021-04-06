@@ -10,119 +10,107 @@ using PrestationService.Models;
 
 namespace PrestationService.Controllers
 {
-    public class ServicesController : Controller
+    public class PaiementsController : Controller
     {
         private bdServiceContext db = new bdServiceContext();
 
-        // GET: Services
+        // GET: Paiements
         public ActionResult Index()
         {
-            var services = db.services.Include(s => s.Professionnel).Include(s => s.SousCategorie);
-            return View(services.ToList());
+            return View(db.paiements.ToList());
         }
 
-        // GET: Services/Details/5
+        // GET: Paiements/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Service service = db.services.Find(id);
-            if (service == null)
+            Paiement paiement = db.paiements.Find(id);
+            if (paiement == null)
             {
                 return HttpNotFound();
             }
-            return View(service);
+            return View(paiement);
         }
 
-        // GET: Services/Create
+        // GET: Paiements/Create
         public ActionResult Create()
         {
-           
-            ViewBag.IdProfessionnel = new SelectList(db.professionnels, "IdProfessionnel", "nomComplet");
-            ViewBag.idSouCat = new SelectList(db.SousCategories, "idSouCat", "libSouCat");
             return View();
         }
 
-        // POST: Services/Create
+        // POST: Paiements/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idService,libelle,description,prix,nbHeure,IdProfessionnel,idSouCat")] Service service)
+        public ActionResult Create([Bind(Include = "idPay,typPay,typeCarte,numeroCarte,numeroChk,operateur,tel")] Paiement paiement)
         {
             if (ModelState.IsValid)
             {
-                db.services.Add(service);
+                db.paiements.Add(paiement);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
-            ViewBag.IdProfessionnel = new SelectList(db.professionnels, "IdProfessionnel", "nomComplet", service.IdProfessionnel);
-            ViewBag.idSouCat = new SelectList(db.SousCategories, "idSouCat", "libSouCat", service.idSouCat);
-            return View(service);
+
+            return View(paiement);
         }
 
-        // GET: Services/Edit/5
+        // GET: Paiements/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Service service = db.services.Find(id);
-            if (service == null)
+            Paiement paiement = db.paiements.Find(id);
+            if (paiement == null)
             {
                 return HttpNotFound();
             }
-
-            ViewBag.IdProfessionnel = new SelectList(db.professionnels, "IdProfessionnel", "nomComplet", service.IdProfessionnel);
-            ViewBag.idSouCat = new SelectList(db.SousCategories, "idSouCat", "libSouCat", service.idSouCat);
-            return View(service);
+            return View(paiement);
         }
 
-        // POST: Services/Edit/5
+        // POST: Paiements/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idService,libelle,description,prix,nbHeure,IdProfessionnel,idSouCat")] Service service)
+        public ActionResult Edit([Bind(Include = "idPay,typPay,typeCarte,numeroCarte,numeroChk,operateur,tel")] Paiement paiement)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(service).State = EntityState.Modified;
+                db.Entry(paiement).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-    
-            ViewBag.IdProfessionnel = new SelectList(db.professionnels, "IdProfessionnel", "nomComplet", service.IdProfessionnel);
-            ViewBag.idSouCat = new SelectList(db.SousCategories, "idSouCat", "libSouCat", service.idSouCat);
-            return View(service);
+            return View(paiement);
         }
 
-        // GET: Services/Delete/5
+        // GET: Paiements/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Service service = db.services.Find(id);
-            if (service == null)
+            Paiement paiement = db.paiements.Find(id);
+            if (paiement == null)
             {
                 return HttpNotFound();
             }
-            return View(service);
+            return View(paiement);
         }
 
-        // POST: Services/Delete/5
+        // POST: Paiements/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Service service = db.services.Find(id);
-            db.services.Remove(service);
+            Paiement paiement = db.paiements.Find(id);
+            db.paiements.Remove(paiement);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

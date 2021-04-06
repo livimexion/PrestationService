@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_layout.cshtml";
 }
 
 <h2>Details</h2>
@@ -11,14 +11,6 @@
     <h4>Transfert</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Paiement.typPay)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Paiement.typPay)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.operateur)
         </dt>

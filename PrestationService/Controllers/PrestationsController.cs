@@ -39,8 +39,8 @@ namespace PrestationService.Controllers
         // GET: Prestations/Create
         public ActionResult Create()
         {
-            ViewBag.IdClient = new SelectList(db.clients, "IdClient", "IdClient");
-            ViewBag.IdFacture = new SelectList(db.factures, "idFacture", "idFacture");
+            ViewBag.IdClient = new SelectList(db.clients, "IdClient", "nomComplet");
+            ViewBag.IdFacture = new SelectList(db.factures, "idFacture", "numero");
             ViewBag.idService = new SelectList(db.services, "idService", "libelle");
             return View();
         }
@@ -59,8 +59,8 @@ namespace PrestationService.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdClient = new SelectList(db.clients, "IdClient", "IdClient", prestation.IdClient);
-            ViewBag.IdFacture = new SelectList(db.factures, "idFacture", "idFacture", prestation.IdFacture);
+            ViewBag.IdClient = new SelectList(db.clients, "IdClient", "nomComplet", prestation.IdClient);
+            ViewBag.IdFacture = new SelectList(db.factures, "idFacture", "numero", prestation.IdFacture);
             ViewBag.idService = new SelectList(db.services, "idService", "libelle", prestation.idService);
             return View(prestation);
         }

@@ -180,9 +180,11 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ChatRoomsController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\FacturesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\PaiementsController.cs" />
     <Compile Include="Controllers\PersonnesController.cs" />
     <Compile Include="Controllers\PrestationsController.cs" />
     <Compile Include="Controllers\ProfessionnelsController.cs" />
@@ -196,10 +198,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\bdServiceContext.cs" />
-    <Compile Include="Models\Carte.cs" />
     <Compile Include="Models\Categorie.cs" />
     <Compile Include="Models\ChatRoom.cs" />
-    <Compile Include="Models\Cheque.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Facture.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -212,7 +212,6 @@
     <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\SousCategorie.cs" />
-    <Compile Include="Models\Transfert.cs" />
     <Compile Include="Models\UserConnect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -678,11 +677,6 @@
     <Content Include="Views\Services\Details.cshtml" />
     <Content Include="Views\Services\Edit.cshtml" />
     <Content Include="Views\Services\Index.cshtml" />
-    <Content Include="Views\Paiements\Create.cshtml" />
-    <Content Include="Views\Paiements\Delete.cshtml" />
-    <Content Include="Views\Paiements\Details.cshtml" />
-    <Content Include="Views\Paiements\Edit.cshtml" />
-    <Content Include="Views\Paiements\Index.cshtml" />
     <Content Include="Views\Cartes\Create.cshtml" />
     <Content Include="Views\Cartes\Delete.cshtml" />
     <Content Include="Views\Cartes\Details.cshtml" />
@@ -733,10 +727,24 @@
     <Content Include="Views\Professionnels\Index.cshtml" />
     <Content Include="Views\SousCategories\Create.cshtml" />
     <Content Include="Views\SousCategories\Edit.cshtml" />
+    <Content Include="Views\Prestations\Index.cshtml" />
+    <Content Include="Views\Prestations\Details.cshtml" />
+    <Content Include="Views\Prestations\Create.cshtml" />
+    <Content Include="Views\Prestations\Edit.cshtml" />
+    <Content Include="Views\Prestations\Delete.cshtml" />
+    <Content Include="Views\Paiements\Create.cshtml" />
+    <Content Include="Views\Paiements\Delete.cshtml" />
+    <Content Include="Views\Paiements\Details.cshtml" />
+    <Content Include="Views\Paiements\Edit.cshtml" />
+    <Content Include="Views\Paiements\Index.cshtml" />
+    <Content Include="Views\Factures\Create.cshtml" />
+    <Content Include="Views\Factures\Delete.cshtml" />
+    <Content Include="Views\Factures\Details.cshtml" />
+    <Content Include="Views\Factures\Edit.cshtml" />
+    <Content Include="Views\Factures\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Prestations\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

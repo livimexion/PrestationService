@@ -82,7 +82,7 @@ namespace PrestationService.Models
         {
             get
             {
-                return nom + "," + prenom;
+                return nom + " " + prenom;
             }
         }
     }

@@ -10,119 +10,112 @@ using PrestationService.Models;
 
 namespace PrestationService.Controllers
 {
-    public class ServicesController : Controller
+    public class FacturesController : Controller
     {
         private bdServiceContext db = new bdServiceContext();
 
-        // GET: Services
+        // GET: Factures
         public ActionResult Index()
         {
-            var services = db.services.Include(s => s.Professionnel).Include(s => s.SousCategorie);
-            return View(services.ToList());
+            var factures = db.factures.Include(f => f.Paiement);
+            return View(factures.ToList());
         }
 
-        // GET: Services/Details/5
+        // GET: Factures/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Service service = db.services.Find(id);
-            if (service == null)
+            Facture facture = db.factures.Find(id);
+            if (facture == null)
             {
                 return HttpNotFound();
             }
-            return View(service);
+            return View(facture);
         }
 
-        // GET: Services/Create
+        // GET: Factures/Create
         public ActionResult Create()
         {
-           
-            ViewBag.IdProfessionnel = new SelectList(db.professionnels, "IdProfessionnel", "nomComplet");
-            ViewBag.idSouCat = new SelectList(db.SousCategories, "idSouCat", "libSouCat");
+            ViewBag.idPay = new SelectList(db.paiements, "idPay", "typPay");
             return View();
         }
 
-        // POST: Services/Create
+        // POST: Factures/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "idService,libelle,description,prix,nbHeure,IdProfessionnel,idSouCat")] Service service)
+        public ActionResult Create([Bind(Include = "idFacture,numero,dateFacture,montantHT,montantTTC,etat,idPay")] Facture facture)
         {
             if (ModelState.IsValid)
             {
-                db.services.Add(service);
+                db.factures.Add(facture);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            
-            ViewBag.IdProfessionnel = new SelectList(db.professionnels, "IdProfessionnel", "nomComplet", service.IdProfessionnel);
-            ViewBag.idSouCat = new SelectList(db.SousCategories, "idSouCat", "libSouCat", service.idSouCat);
-            return View(service);
+
+            ViewBag.idPay = new SelectList(db.paiements, "idPay", "typPay", facture.idPay);
+            return View(facture);
         }
 
-        // GET: Services/Edit/5
+        // GET: Factures/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Service service = db.services.Find(id);
-            if (service == null)
+            Facture facture = db.factures.Find(id);
+            if (facture == null)
             {
                 return HttpNotFound();
             }
-
-            ViewBag.IdProfessionnel = new SelectList(db.professionnels, "IdProfessionnel", "nomComplet", service.IdProfessionnel);
-            ViewBag.idSouCat = new SelectList(db.SousCategories, "idSouCat", "libSouCat", service.idSouCat);
-            return View(service);
+            ViewBag.idPay = new SelectList(db.paiements, "idPay", "typPay", facture.idPay);
+            return View(facture);
         }
 
-        // POST: Services/Edit/5
+        // POST: Factures/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "idService,libelle,description,prix,nbHeure,IdProfessionnel,idSouCat")] Service service)
+        public ActionResult Edit([Bind(Include = "idFacture,numero,dateFacture,montantHT,montantTTC,etat,idPay")] Facture facture)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(service).State = EntityState.Modified;
+                db.Entry(facture).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-    
-            ViewBag.IdProfessionnel = new SelectList(db.professionnels, "IdProfessionnel", "nomComplet", service.IdProfessionnel);
-            ViewBag.idSouCat = new SelectList(db.SousCategories, "idSouCat", "libSouCat", service.idSouCat);
-            return View(service);
+            ViewBag.idPay = new SelectList(db.paiements, "idPay", "typPay", facture.idPay);
+            return View(facture);
         }
 
-        // GET: Services/Delete/5
+        // GET: Factures/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Service service = db.services.Find(id);
-            if (service == null)
+            Facture facture = db.factures.Find(id);
+            if (facture == null)
             {
                 return HttpNotFound();
             }
-            return View(service);
+            return View(facture);
         }
 
-        // POST: Services/Delete/5
+        // POST: Factures/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Service service = db.services.Find(id);
-            db.services.Remove(service);
+            Facture facture = db.factures.Find(id);
+            db.factures.Remove(facture);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

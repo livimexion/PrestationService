@@ -20,7 +20,7 @@ namespace PrestationService.Models
         [ScaffoldColumn(false)]
         public int idFacture { get; set; }
 
-        [Required(ErrorMessage = "*"), Display(Name = "Nom")]
+        [Required(ErrorMessage = "*"), Display(Name = "Numero")]
         public int numero { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
@@ -31,6 +31,9 @@ namespace PrestationService.Models
 
         [Required(ErrorMessage = "*"), Display(Name = "Montant TTC")]
         public int montantTTC { get; set; }
+
+        [Required(ErrorMessage = "*"), Display(Name = "Etat")]
+        public Boolean etat { get; set; }
 
         [Display(Name = "Paiement")]
         public int idPay { get; set; }

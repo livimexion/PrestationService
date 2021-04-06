@@ -1,0 +1,51 @@
+﻿@model PrestationService.Models.Prestation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Prestation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Facture.idFacture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Facture.idFacture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service.libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service.libelle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adresse)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idPrestation }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

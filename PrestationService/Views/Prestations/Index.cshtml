@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PrestationService.Models.Prestation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Facture.idFacture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Service.libelle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adresse)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Facture.idFacture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Service.libelle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adresse)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idPrestation }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idPrestation }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idPrestation })
+        </td>
+    </tr>
+}
+
+</table>

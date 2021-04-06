@@ -7,29 +7,45 @@ using System.Web;
 
 namespace PrestationService.Models
 {
+    public enum TypePay
+    {
+        CARTE, CHEQUE, TRANSFERT
+    }
+
     public class Paiement
     {
+        public enum TypePay
+        {
+            CARTE, CHEQUE, TRANSFERT
+        }
+
         [Key]
         [ScaffoldColumn(false)]
         public int idPay { get; set; }
 
-        [Required(ErrorMessage = "*"), Display(Name = "Type de paiement")]
-        [MaxLength(30, ErrorMessage = "taille maximale 30")]
-        public string typPay { get; set; }
+        
+        public TypePay typPay { get; set; }
 
-        [Display(Name = "Cheque")]
-        public int IdCheque { get; set; }
-        [ForeignKey("IdCheque")]
-        public virtual Cheque Cheque { get; set; }
+        [Display(Name = "Type de Carte")]
+        [StringLength(100)]
+        public string typeCarte { get; set; }
 
-        [Display(Name = "Carte")]
-        public int idCarte { get; set; }
-        [ForeignKey("idCarte")]
-        public virtual Carte Carte { get; set; }
+        [Display(Name = "Numero carte")]
+        [MaxLength(50, ErrorMessage = "taille maximale 50")]
+        public string numeroCarte { get; set; }
 
-        [Display(Name = "Transfert")]
-        public int idCash { get; set; }
-        [ForeignKey("idCash")]
-        public virtual Transfert Transfert { get; set; }
+        [Display(Name = "Numero cheque")]
+        [MaxLength(50, ErrorMessage = "taille maximale 50")]
+        public string numeroChk { get; set; }
+
+        [Display(Name = " Operateur")]
+        [MaxLength(50, ErrorMessage = "taille maximale 50")]
+        public string operateur { get; set; }
+
+        [Display(Name = "Telephone")]
+        [MaxLength(80, ErrorMessage = "taille maximale 80"), DataType(DataType.PhoneNumber)]
+        public string tel { get; set; }
+
+       
     }
 }

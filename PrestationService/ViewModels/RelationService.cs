@@ -11,5 +11,6 @@ namespace PrestationService.ViewModels
         public IEnumerable<Service> services { get; set; }
         public IEnumerable<Professionnel> professionnels { get;set; }
         public IEnumerable<SousCategorie> SousCategories { get; set; }
+        public IEnumerable<Prestation> prestations { get; set; }
     }
 }

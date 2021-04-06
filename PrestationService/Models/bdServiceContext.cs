@@ -21,9 +21,6 @@ namespace PrestationService.Models
               public DbSet<Client> clients {get;set;}
               public DbSet<Professionnel> professionnels {get;set;}
               public DbSet<Paiement> paiements {get;set;}
-              public DbSet<Carte> cartes {get;set;}
-              public DbSet<Cheque> cheques {get;set;}
-              public DbSet<Transfert> transferts {get;set;}
               public DbSet<ChatRoom> chatRooms {get;set;}
               public DbSet<Facture> factures {get;set;}
               public DbSet<Message> messages {get;set;}
