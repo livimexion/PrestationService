@@ -164,19 +164,5 @@ namespace PrestationService.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult Profile(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Professionnel professionnel = db.professionnels.Find(id);
-            if (professionnel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(professionnel);
-            // return View();
-        }
     }
 }

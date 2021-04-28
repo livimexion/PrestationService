@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\PrestationService",
-    "\\PrestationService\\Views"
+    "\\PrestationService\\Views",
+    "\\PrestationService\\Views\\Shared"
   ],
-  "SelectedNode": "\\PrestationService\\Views\\Shared",
+  "SelectedNode": "\\PrestationService",
   "PreviewInSolutionExplorer": false
 }
