@@ -135,5 +135,12 @@ namespace PrestationService.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult BricoMobilier()
+        {
+            var services = db.services.Include(s => s.Professionnel).Include(s => s.SousCategorie);
+            return View(services.ToList());
+
+        }
     }
 }
